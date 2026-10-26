@@ -47,6 +47,18 @@ JNIEXPORT jobject JNICALL Java_org_openhome_net_controlpoint_CpDeviceListUpnpUui
 	return devListInit;	
 }
 
+JNIEXPORT void JNICALL Java_org_openhome_net_controlpoint_CpDeviceListUpnpUuid_CpDeviceListUpnpTryAdd
+  (JNIEnv *aEnv, jobject aObject, jlong aHandle, jstring aLocation)
+{
+	(void)aObject;
+	const char* location = (*aEnv)->GetStringUTFChars(aEnv, aLocation, NULL);
+	if (location == NULL) {
+		return;
+	}
+	CpDeviceListUpnpTryAdd((HandleCpDeviceList)(size_t)aHandle, location);
+	(*aEnv)->ReleaseStringUTFChars(aEnv, aLocation, location);
+}
+
 #ifdef __cplusplus
 }
 #endif

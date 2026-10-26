@@ -15,6 +15,9 @@ extern "C" {
 JNIEXPORT jobject JNICALL Java_org_openhome_net_controlpoint_CpDeviceListUpnpUuid_CpDeviceListCreateUpnpUuid
   (JNIEnv *, jobject, jstring);
 
+JNIEXPORT void JNICALL Java_org_openhome_net_controlpoint_CpDeviceListUpnpUuid_CpDeviceListUpnpTryAdd
+  (JNIEnv *, jobject, jlong, jstring);
+
 #ifdef __cplusplus
 }
 #endif
